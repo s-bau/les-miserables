@@ -19,7 +19,7 @@ The nlp files visualize the most common words using different models, both with 
 * frequency count of lemmatized tokens
 * word cloud of token frequency
 
+<img src=images/nlp_4_wordclouds.jpg>
 <img src=images/nlp_1_frequencies.jpg>
 <img src=images/nlp_2_stemming.jpg>
 <img src=images/nlp_3_lemmatizing.jpg>
-<img src=images/nlp_4_wordclouds.jpg>
