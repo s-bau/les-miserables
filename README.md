@@ -7,6 +7,8 @@ Data mission at Wild Code School (2 days)
 * Data preparation (cleaning and tokenizing)
 * NLP models to visualize the most frequent words
 
+<img src=images/nlp_4_wordclouds.jpg>
+
 ## Data preparation
 
 The package **preparation** retrieves and cleans the full text of *Les Misérables* in its original French version from [gutenberg.org](https://gutenberg.org/ebooks/search/?query=victor+hugo&submit_search=Go%21). Everything that is not part of the main text is removed (such as the list of chapters) and the main text is comined in one single string of text. **mis_2_prep.py** removes all French stopwords and tokenizes the text using spaCy. It also creates a version of text/tokens that removes the last and first names of the most prominent characters.
@@ -19,7 +21,5 @@ The nlp files visualize the most common words using different models, both with 
 * frequency count of lemmatized tokens
 * word cloud of token frequency
 
-<img src=images/nlp_4_wordclouds.jpg>
 <img src=images/nlp_1_frequencies.jpg>
-<img src=images/nlp_2_stemming.jpg>
 <img src=images/nlp_3_lemmatizing.jpg>

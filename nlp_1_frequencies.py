@@ -33,25 +33,42 @@ for word in miserables_nonames_tokens:
 sorted_word_counts_nonames = sorted(word_counts_nonames.items(), key=lambda x: x[1], reverse=True)
 
 # Get the top words
-top_words = dict(sorted_word_counts[:15])
-top_words_nonames = dict(sorted_word_counts_nonames[:15])
+top_words = dict(sorted_word_counts[:10])
+top_words_nonames = dict(sorted_word_counts_nonames[:10])
 
-# Plotting
-plt.figure(figsize = (20, 12))
+plt.figure(figsize = (20, 12), facecolor='#e8ccbd')
 
-plt.subplot(211)
-plt.bar(top_words.keys(), top_words.values())
-plt.title("Les mots les plus utilisés par Victor Hugo (sans stopwords)")
-plt.ylabel("Nombre d'occurrences")
-plt.xlabel("Mots")
-plt.xticks(rotation=45)
+ax1 = plt.subplot(211, facecolor="#e8ccbd")
+bars1 = plt.bar(top_words.keys(), top_words.values(), color='#8B0000', edgecolor="#e8ccbd")
+plt.xticks(rotation=45, fontsize=20, fontweight="bold")
+plt.yticks([])
 
-plt.subplot(212)
-plt.bar(top_words_nonames.keys(), top_words_nonames.values())
-plt.title("Les mots les plus utilisés par Victor Hugo (sans stopwords et sans noms/prénoms)")
-plt.ylabel("Nombre d'occurrences")
-plt.xlabel("Mots")
-plt.xticks(rotation=45)
+# Adding tick labels inside the bars
+for bar in bars1:
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.1,
+             str(int(bar.get_height())), ha='center', va='bottom', fontsize=16, color="grey", fontweight="bold")
+
+# Remove frame (spines) for ax1
+ax1.spines['top'].set_visible(False)
+ax1.spines['bottom'].set_visible(False)
+ax1.spines['left'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+
+ax2 = plt.subplot(212, facecolor="#e8ccbd")
+bars2 = plt.bar(top_words_nonames.keys(), top_words_nonames.values(), color='#CD5C5C')
+plt.xticks(rotation=45, fontsize=20, fontweight="bold")
+plt.yticks([])
+
+for bar in bars2:
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() - 1,
+             str(int(bar.get_height())), ha='center', va='bottom', fontsize=16, color="grey", fontweight="bold")
+
+# Remove frame (spines) for ax1
+ax2.spines['top'].set_visible(False)
+ax2.spines['bottom'].set_visible(False)
+ax2.spines['left'].set_visible(False)
+ax2.spines['right'].set_visible(False)
 
 
 plt.tight_layout()

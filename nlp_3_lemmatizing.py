@@ -41,7 +41,7 @@ freq_lem = sorted(zip(freq_lem.values(), freq_lem.keys()), reverse=True)
 
 # turning the top words into a dictionary
 top_lem = dict()
-for i in range(15):
+for i in range(10):
     top_lem[freq_lem[i][1]] = freq_lem[i][0]
 
 
@@ -49,24 +49,44 @@ for i in range(15):
 freq_lem_nonames = nltk.FreqDist(miserables_lem_nonames.split(" "))
 freq_lem_nonames = sorted(zip(freq_lem_nonames.values(), freq_lem_nonames.keys()), reverse=True)
 top_lem_nonames = dict()
-for i in range(15):
+for i in range(10):
     top_lem_nonames[freq_lem_nonames[i][1]] = freq_lem_nonames[i][0]
 
-# Plotting
-plt.figure(figsize = (20,12))
 
-plt.subplot(211)
-plt.bar(top_lem.keys(), top_lem.values())
-plt.title("Lemmatizing : Les mots les plus utilisés par Victor Hugo (sans stopwords)")
-plt.ylabel("Nombre d'occurrences")
-plt.xlabel("Mots")
-plt.xticks(rotation=45)
+# plotting
+plt.figure(figsize = (20, 12), facecolor='#e8ccbd')
 
-plt.subplot(212)
-plt.bar(top_lem_nonames.keys(), top_lem_nonames.values())
-plt.title("Lemmatizing : Les mots les plus utilisés par Victor Hugo (sans stopwords et sans noms/prénoms)")
-plt.ylabel("Nombre d'occurrences")
-plt.xlabel("Mots")
+ax1 = plt.subplot(211, facecolor="#e8ccbd")
+bars1 = plt.bar(top_lem.keys(), top_lem.values(), color='#8B0000', edgecolor="#e8ccbd")
+plt.xticks(rotation=45, fontsize=20, fontweight="bold")
+plt.yticks([])
+
+# Adding tick labels inside the bars
+for bar in bars1:
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.1,
+             str(int(bar.get_height())), ha='center', va='bottom', fontsize=16, color="grey", fontweight="bold")
+
+# Remove frame (spines) for ax1
+ax1.spines['top'].set_visible(False)
+ax1.spines['bottom'].set_visible(False)
+ax1.spines['left'].set_visible(False)
+ax1.spines['right'].set_visible(False)
+
+
+ax2 = plt.subplot(212, facecolor="#e8ccbd")
+bars2 = plt.bar(top_lem_nonames.keys(), top_lem_nonames.values(), color='#CD5C5C')
+plt.xticks(rotation=45, fontsize=20, fontweight="bold")
+plt.yticks([])
+
+for bar in bars2:
+    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() - 1,
+             str(int(bar.get_height())), ha='center', va='bottom', fontsize=16, color="grey", fontweight="bold")
+
+# Remove frame (spines) for ax1
+ax2.spines['top'].set_visible(False)
+ax2.spines['bottom'].set_visible(False)
+ax2.spines['left'].set_visible(False)
+ax2.spines['right'].set_visible(False)
 
 plt.tight_layout()
 plt.show()
