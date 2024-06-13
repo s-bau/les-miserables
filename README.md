@@ -21,7 +21,8 @@ The nlp files visualize the most common words using different models, both with 
 * frequency count of lemmatized tokens
 * word cloud of token frequency
 
+#### Top 10 words with and without character names
 <img src=images/nlp_1_frequencies.jpg>
 
-# Top 10 words (excluding character names) using lemmatization
+#### Top 10 words (excluding character names) using lemmatization
 <img src=images/nlp_3_lemmatizing.jpg>
