@@ -5,7 +5,7 @@ An analysis of Victor Hugo's *Les Misérables* using different natural language 
 Data mission at Wild Code School (2 days)
 
 * Data preparation (cleaning and tokenizing)
-* NLP models to visualize the most frequent words
+* NLP models to visualize the most frequent words (with and without character names)
 
 <img src=images/nlp_4_wordclouds.jpg>
 
@@ -22,4 +22,6 @@ The nlp files visualize the most common words using different models, both with 
 * word cloud of token frequency
 
 <img src=images/nlp_1_frequencies.jpg>
+
+# Top 10 words (excluding character names) using lemmatization
 <img src=images/nlp_3_lemmatizing.jpg>
